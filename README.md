@@ -39,7 +39,7 @@ PdfRenderingSrv::FromUrl.call(url: "https://example.com", format: :png, viewport
 PdfRenderingSrv::FromHtml.call(html: "<html><head><title>Example</title></head><body>", format: :pdf, pdf: { format: "A4" })
 ```
 
-The general interface is described in the [Base](/pdf-rendering-srv/base.rb) class.
+The general interface is described in the [Base](https://github.com/tomasc/pdf-rendering-srv-ruby/blob/master/lib/pdf_rendering_srv/base.rb) class.
 
 ## Development
 
