@@ -2,6 +2,8 @@
 
 require "pdf_rendering_srv/version"
 
+require "active_support/core_ext/hash"
+
 require "dry-struct"
 require "dry-types"
 require "http"

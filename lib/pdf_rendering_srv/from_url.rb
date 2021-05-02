@@ -3,7 +3,7 @@
 require "http"
 
 module PdfRenderingSrv
-  class FromUrl < PdfRenderingSrv
+  class FromUrl < Base
     attribute :url, Types::Coercible::String
 
     def response

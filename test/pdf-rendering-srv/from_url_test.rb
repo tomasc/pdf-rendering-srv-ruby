@@ -4,57 +4,47 @@ require "test_helper"
 
 module PdfRenderingSrv
   class FromUrlTest < Minitest::Spec
-    # TODO: mock these with VCR
+    let(:url) { "https://example.com" }
 
-    # let(:format) { nil }
-    # let(:url) { "https://example.com" }
-    # let(:service) { FromUrl.new(url: url, format: format) }
-    #
-    # it "#response" do
-    #   _(service.response.code).must_equal 200
-    #   _(service.response.mime_type).must_equal "application/pdf"
-    # end
-    #
-    # describe "#response" do
-    #   before do
-    #     @status, @headers, @body = service.response.to_a
-    #   end
-    #
-    #   it "sets status, headers and body" do
-    #     _(@status).must_equal 200
-    #     _(@headers.keys).must_include "Content-Type"
-    #     _(@headers.keys).must_include "Content-Length"
-    #     _(@body).must_be :present?
-    #   end
-    # end
-    #
-    # describe "HTML" do
-    #   let(:format) { :html }
-    #
-    #   before do
-    #     @status, @headers, @body = service.response.to_a
-    #   end
-    #
-    #   it { _(@body).must_include "<h1>Example Domain</h1>" }
-    #   it { _(service.response.mime_type).must_equal "text/html" }
-    # end
-    #
-    # describe "PDF" do
-    #   let(:format) { :pdf }
-    #
-    #   it { _(service.response.mime_type).must_equal "application/pdf" }
-    # end
-    #
-    # describe "PNG" do
-    #   let(:format) { :png }
-    #
-    #   it { _(service.response.mime_type).must_equal "image/png" }
-    # end
-    #
-    # describe "JPG" do
-    #   let(:format) { :jpg }
-    #
-    #   it { _(service.response.mime_type).must_equal "image/jpeg" }
-    # end
+    it "returns PDF by default" do
+      VCR.use_cassette("from_url") do
+        @response = FromUrl.call(url: url)
+
+        _(@response.status).must_be :success?
+        _(@response.mime_type).must_equal "application/pdf"
+        _(@response.content_length).must_equal 35878
+      end
+    end
+
+    it "returns HTML" do
+      VCR.use_cassette("from_url/html") do
+        @response = FromUrl.call(url: url, format: :html)
+
+        _(@response.status).must_be :success?
+        _(@response.mime_type).must_equal "text/html"
+        _(@response.content_length).must_equal 294
+        _(@response.body.to_s).must_include "<h1>Example Domain</h1>"
+      end
+    end
+
+    it "returns PNG" do
+      VCR.use_cassette("from_url/png") do
+        @response = FromUrl.call(url: url, format: :png)
+
+        _(@response.status).must_be :success?
+        _(@response.mime_type).must_equal "image/png"
+        _(@response.content_length).must_equal 35303
+      end
+    end
+
+    it "returns JPG" do
+      VCR.use_cassette("from_url/jpg") do
+        @response = FromUrl.call(url: url, format: :jpg)
+
+        _(@response.status).must_be :success?
+        _(@response.mime_type).must_equal "image/jpeg"
+        _(@response.content_length).must_equal 36849
+      end
+    end
   end
 end

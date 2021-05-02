@@ -34,6 +34,8 @@ GEM
     ast (2.4.2)
     builder (3.2.4)
     concurrent-ruby (1.1.8)
+    crack (0.4.5)
+      rexml
     crass (1.0.6)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
@@ -64,6 +66,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    hashdiff (1.0.1)
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -145,18 +148,26 @@ GEM
       unf_ext
     unf_ext (0.0.7.7)
     unicode-display_width (2.0.0)
+    vcr (6.0.0)
+    webmock (3.12.2)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (~> 6.0)
   bundler
   lefthook
   minitest (~> 5.0)
   pdf-rendering-srv-ruby!
   rake (~> 10.0)
   rubocop-rails_config
+  vcr (~> 6.0)
+  webmock (~> 3.9)
 
 BUNDLED WITH
    2.1.4

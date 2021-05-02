@@ -4,59 +4,27 @@ require "test_helper"
 
 module PdfRenderingSrv
   class FromHtmlTest < Minitest::Spec
-    # TODO: mock these with VCR
+    let(:html) { "<html><head><title>Hello</title></head><body>Hello</body></html>" }
 
-    # let(:format) { nil }
-    # let(:html) { "<html><head><title>Hello</title></head><body>Hello</body></html>" }
-    # let(:service) { FromHtml.new(html: html, format: format) }
-    #
-    # it "#response" do
-    #   _(service.response.code).must_equal 200
-    #   _(service.response.mime_type).must_equal "application/pdf"
-    # end
-    #
-    # describe "#response" do
-    #   before do
-    #     @status, @headers, @body = service.response.to_a
-    #   end
-    #
-    #   it "sets status, headers and body" do
-    #     _(@status).must_equal 200
-    #     _(@headers.keys).must_include "Content-Type"
-    #     _(@headers.keys).must_include "Content-Length"
-    #     _(@body).must_be :present?
-    #   end
-    # end
+    it "returns PDF by default" do
+      VCR.use_cassette("from_html") do
+        @response = FromHtml.call(html: html)
+
+        _(@response.status).must_be :success?
+        _(@response.mime_type).must_equal "application/pdf"
+        _(@response.content_length).must_equal 11469
+      end
+    end
 
     # FIXME: only PDF output seems to work
-
-    # describe "HTML" do
-    #   let(:format) { :html }
+    # it "returns PNG" do
+    #   VCR.use_cassette("from_html/png") do
+    #     @response = FromHtml.call(html: html, format: :png)
     #
-    #   before do
-    #     @status, @headers, @body = service.response.to_a
+    #     _(@response.status).must_be :success?
+    #     _(@response.mime_type).must_equal "image/png"
+    #     _(@response.content_length).must_equal 11469
     #   end
-    #
-    #   it { _(@body).must_include "<title>Hello</title>" }
-    #   it { _(service.response.mime_type).must_equal "text/html" }
-    # end
-
-    # describe "PDF" do
-    #   let(:format) { :pdf }
-    #
-    #   it { _(service.response.mime_type).must_equal "application/pdf" }
-    # end
-
-    # describe "PNG" do
-    #   let(:format) { :png }
-    #
-    #   it { _(service.response.mime_type).must_equal "image/png" }
-    # end
-    #
-    # describe "JPG" do
-    #   let(:format) { :jpg }
-    #
-    #   it { _(service.response.mime_type).must_equal "image/jpeg" }
     # end
   end
 end

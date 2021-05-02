@@ -27,6 +27,11 @@ Gem::Specification.new do |spec|
   spec.add_dependency "http", "~> 4.4"
   spec.add_dependency "zeitwerk", "~> 2.4"
 
+  spec.add_development_dependency "activesupport", "~> 6.0"
+
+  spec.add_development_dependency "vcr", "~> 6.0"
+  spec.add_development_dependency "webmock", "~> 3.9"
+
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"

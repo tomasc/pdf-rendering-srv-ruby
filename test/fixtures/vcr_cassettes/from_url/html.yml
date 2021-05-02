@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:9000/api/render
+    body:
+      encoding: UTF-8
+      string: '{"url":"https://example.com","output":"html","screenshot":{}}'
+    headers:
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Host:
+      - localhost:9000
+      User-Agent:
+      - http.rb/4.4.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '294'
+      Etag:
+      - W/"126-HlD++DCS9huUeavS05zFB77+tFc"
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Sun, 02 May 2021 09:16:38 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: |2+
+
+        <div>
+            <h1>Example Domain</h1>
+            <p>This domain is for use in illustrative examples in documents. You may use this
+            domain in literature without prior coordination or asking for permission.</p>
+            <p><a href="https://www.iana.org/domains/example">More information...</a></p>
+        </div>
+
+
+  recorded_at: Sun, 02 May 2021 09:16:38 GMT
+recorded_with: VCR 6.0.0
