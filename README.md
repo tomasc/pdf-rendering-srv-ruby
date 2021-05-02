@@ -23,11 +23,11 @@ Or install it yourself as:
 
 ## Usage
 
-Configure the gem by specifying URL of the pdf-rendering-srv service:
+Configure the gem by specifying URL of the [pdf-rendering-srv](https://github.com/restorecommerce/pdf-rendering-srv) service:
 
 ```ruby
 PdfRenderingSrv.configure do |config|
-  config.pdf_rendering_srv_url = "http://…"
+  config.pdf_rendering_srv_url = "http://localhost:9000/api/render" # default value
 end
 ```
 
