@@ -1,5 +1,8 @@
 # pdf-rendering-srv-ruby
 
+[![Gem Version](https://badge.fury.io/rb/pdf-rendering-srv-ruby.svg)](https://rubygems.org/gems/pdf-rendering-srv-ruby)
+![Ruby](https://github.com/tomasc/pdf-rendering-srv-ruby/workflows/Ruby/badge.svg)
+
 Simple Ruby wrapper for seding requests to [pdf-rendering-srv](https://github.com/restorecommerce/pdf-rendering-srv)
 
 ## Installation
@@ -46,4 +49,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pdf-rendering-srv-ruby.
+Bug reports and pull requests are welcome on GitHub at https://github.com/tomasc/pdf-rendering-srv-ruby.
