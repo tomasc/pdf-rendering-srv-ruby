@@ -1,6 +1,6 @@
 # pdf-rendering-srv-ruby
 
-[![Gem Version](https://badge.fury.io/rb/pdf-rendering-srv-ruby.svg)](https://rubygems.org/gems/pdf-rendering-srv-ruby)
+[![Gem Version](https://badge.fury.io/rb/pdf-rendering-srv-ruby.svg)](https://badge.fury.io/rb/pdf-rendering-srv-ruby)
 ![Ruby](https://github.com/tomasc/pdf-rendering-srv-ruby/workflows/Ruby/badge.svg)
 
 Simple Ruby wrapper for seding requests to [pdf-rendering-srv](https://github.com/restorecommerce/pdf-rendering-srv)
