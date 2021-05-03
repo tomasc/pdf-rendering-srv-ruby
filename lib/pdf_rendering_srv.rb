@@ -23,5 +23,6 @@ end
 
 Zeitwerk::Loader.new.tap do |loader|
   loader.push_dir("#{__dir__}/pdf_rendering_srv", namespace: PdfRenderingSrv)
+  loader.ignore("#{__dir__}/pdf_rendering_srv/version.rb")
   loader.setup
 end
