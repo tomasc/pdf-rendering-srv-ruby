@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.3
+
+* header/footer pdf attributes
+
 ## 0.1.2
 
 * fix nesting on `pdf.margin` and `screenshot.clip`

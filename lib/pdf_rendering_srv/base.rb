@@ -48,11 +48,15 @@ module PdfRenderingSrv
     attribute? :pdf do
       attribute? :scale, Types::Coercible::Float.optional
       attribute? :print_background, Types::Bool.optional
+      attribute? :display_header_footer, Types::Bool.optional
+      attribute? :header_template, Types::String.optional
+      attribute? :footer_template, Types::String.optional
       attribute? :landscape, Types::Bool.optional
       attribute? :page_ranges, Types::Coercible::String.optional
       attribute? :format, Types::Coercible::String.optional
       attribute? :width, Types::Coercible::String.optional
       attribute? :height, Types::Coercible::String.optional
+      attribute? :full_page, Types::Bool.optional
       attribute? :margin do
         attribute? :top, Types::Coercible::String.optional
         attribute? :right, Types::Coercible::String.optional
